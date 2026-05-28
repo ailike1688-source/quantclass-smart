@@ -161,6 +161,32 @@ quantclass-smart-v0.2.4/extension/build/popup.js
 
 否则 Chrome 仍会使用旧的 service worker 或旧侧边栏代码。
 
+## 插件中文乱码修复与验证
+
+如果 Chrome 侧边栏出现 `涓枃`、`娴嬭瘯`、`鍒犻櫎`、`馃...` 等乱码，通常是构建文件中的中文和 emoji 字符被错误编码。当前修复位置：
+
+```text
+quantclass-smart-v0.2.4/extension/build/popup.js
+```
+
+修复后可用 Node.js 做语法检查：
+
+```powershell
+node --check .\quantclass-smart-v0.2.4\extension\build\popup.js
+```
+
+也可以扫描典型乱码字符，确认结果为 `MOJIBAKE_LINES 0`：
+
+```powershell
+$p = ".\quantclass-smart-v0.2.4\extension\build\popup.js"
+$text = [System.IO.File]::ReadAllText($p, [System.Text.Encoding]::UTF8)
+$patterns = '馃|娴|娣|鍒|鉃|脳|涓|锛|鈥\?|鈫\?'
+$matches = [regex]::Matches($text, $patterns)
+"MOJIBAKE_LINES $($matches.Count)"
+```
+
+验证通过后，打开 `chrome://extensions`，点击 QuantClass Smart 的“重新加载”，再重新打开侧边栏。
+
 ## 验证自动启动
 
 1. 先停止所有正在运行的后端窗口

@@ -105,13 +105,13 @@ ${k.content}
         </div>
 
         <button class="agent-start-btn" onClick=${()=>y(l("agent.defaultQuestion"))} disabled=${s.size===0||p}>
-          馃殌 ${l("agent.startReading")}
+          🚀 ${l("agent.startReading")}
         </button>
 
         <div class="agent-toolbar-bottom">
-          <button class="chat-tool-btn" onClick=${()=>ae(g=>!g)}>馃搸 PDF</button>
-          <button class="chat-tool-btn" onClick=${qe}>馃搵 ${l("chat.btnHistory")}</button>
-          <button class="chat-tool-btn" onClick=${Te}>鉁?${l("chat.btnNew")}</button>
+          <button class="chat-tool-btn" onClick=${()=>ae(g=>!g)}>📎 PDF</button>
+          <button class="chat-tool-btn" onClick=${qe}>📋 ${l("chat.btnHistory")}</button>
+          <button class="chat-tool-btn" onClick=${Te}>＋ ${l("chat.btnNew")}</button>
         </div>
 
         ${re&&m`
@@ -120,15 +120,15 @@ ${k.content}
               <input type="text" class="pdf-url-input" value=${le}
                 onInput=${g=>te(g.target.value)}
                 onKeyDown=${g=>g.key==="Enter"&&Z({url:le.trim()})}
-                placeholder="绮樿创 PDF 涓嬭浇閾炬帴..."
+                placeholder="粘贴 PDF 下载链接..."
                 disabled=${j} />
               <button class="pdf-load-btn" onClick=${()=>Z({url:le.trim()})} disabled=${j||!le.trim()}>
                 ${j?"\u23F3":"\u{1F4E5}"}
               </button>
             </div>
-            <div class="pdf-input-divider">鈥?鎴?鈥?/div>
+            <div class="pdf-input-divider">— 或 —</div>
             <button class="pdf-upload-btn" onClick=${()=>De.current?.click()} disabled=${j}>
-              馃搧 涓婁紶鏈湴 PDF
+              📁 上传本地 PDF
             </button>
             <input ref=${De} type="file" accept=".pdf" style="display:none"
               onChange=${g=>{Z({file:g.target.files[0]}),g.target.value=""}} />
@@ -139,14 +139,14 @@ ${k.content}
           <div class="chat-history-panel">
             <div class="chat-history-header">
               <span>${l("chat.historyTitle")}</span>
-              <button class="chat-hist-action" onClick=${()=>P(!1)}>鉁?/button>
+              <button class="chat-hist-action" onClick=${()=>P(!1)}></button>
             </div>
             ${D.length===0&&m`<div class="chat-history-empty">${l("chat.noHistory")}</div>`}
             ${D.map(g=>m`
               <div key=${g.id} class="chat-history-item" onClick=${()=>Ke(g)}>
                 <div class="chat-history-body">
                   <div class="chat-history-title">${g.pageTitle||"Discussion"}</div>
-                  <div class="chat-history-meta">${g.rounds?.length||0} rounds 路 ${Ee(g.updatedAt)}</div>
+                  <div class="chat-history-meta">${g.rounds?.length||0} rounds    ${Ee(g.updatedAt)}</div>
                 </div>
               </div>
             `)}
@@ -156,14 +156,14 @@ ${k.content}
     `;function Re(g){f(x=>x.filter((k,C)=>C!==g))}async function Qe(g){if(p)return;let x=h[g];if(!x)return;let k=x.question,C=x.type==="single"&&x.target?[x.target.id]:[...s];f(B=>B.filter((i,c)=>c!==g)),x.type==="single"&&x.target?await T(x.target.id,k):await y(k)}return m`
     <div class="agent-tab">
       <div class="agent-toolbar">
-        <span class="agent-toolbar-info">馃 ${s.size} agents 路 ${h.length} rounds</span>
+        <span class="agent-toolbar-info">🧠 ${s.size} agents    ${h.length} rounds</span>
         <div class="chat-toolbar-right">
           <button class="chat-tool-btn" onClick=${Fe} disabled=${Se||h.length===0} title="${l("agent.saveToKbTitle")||"\u628A\u6574\u4E2A\u8BA8\u8BBA\u5B58\u5165\u77E5\u8BC6\u5E93"}">
             ${Se?"\u23F3":"\u{1F4DA}"} ${l("agent.saveToKb")||"\u6536\u85CF"}
           </button>
-          <button class="chat-tool-btn" onClick=${Ce}>馃捑 MD</button>
-          <button class="chat-tool-btn" onClick=${qe}>馃搵 ${l("chat.btnHistory")}</button>
-          <button class="chat-tool-btn" onClick=${Te}>鉁?${l("chat.btnNew")}</button>
+          <button class="chat-tool-btn" onClick=${Ce}>💾 MD</button>
+          <button class="chat-tool-btn" onClick=${qe}>📋 ${l("chat.btnHistory")}</button>
+          <button class="chat-tool-btn" onClick=${Te}>＋ ${l("chat.btnNew")}</button>
         </div>
       </div>
 
@@ -175,14 +175,14 @@ ${k.content}
         <div class="chat-history-panel">
           <div class="chat-history-header">
             <span>${l("chat.historyTitle")}</span>
-            <button class="chat-hist-action" onClick=${()=>P(!1)}>鉁?/button>
+            <button class="chat-hist-action" onClick=${()=>P(!1)}></button>
           </div>
           ${D.length===0&&m`<div class="chat-history-empty">${l("chat.noHistory")}</div>`}
           ${D.map(g=>m`
             <div key=${g.id} class="chat-history-item" onClick=${()=>Ke(g)}>
               <div class="chat-history-body">
                 <div class="chat-history-title">${g.pageTitle||"Discussion"}</div>
-                <div class="chat-history-meta">${g.rounds?.length||0} rounds 路 ${Ee(g.updatedAt)}</div>
+                <div class="chat-history-meta">${g.rounds?.length||0} rounds    ${Ee(g.updatedAt)}</div>
               </div>
             </div>
           `)}
@@ -198,9 +198,9 @@ ${k.content}
               <span class="agent-q-text markdown-body" dangerouslySetInnerHTML=${{__html:He(g.question)}}></span>
               <span class="agent-round-actions">
                 <button class="bubble-action-btn" onClick=${()=>Qe(x)}
-                  title="${l("chat.regenerate")||"\u91CD\u65B0\u751F\u6210"}" disabled=${p}>馃攧</button>
+                  title="${l("chat.regenerate")||"\u91CD\u65B0\u751F\u6210"}" disabled=${p}>🔄</button>
                 <button class="bubble-action-btn danger-btn" onClick=${()=>Re(x)}
-                  title="${l("common.delete")||"\u5220\u9664"}">馃棏锔?/button>
+                  title="${l("common.delete")||"\u5220\u9664"}">🗑️</button>
               </span>
             </div>
             ${g.responses.map(k=>m`
@@ -209,16 +209,16 @@ ${k.content}
                   <span class="agent-icon-sm">${k.icon}</span>
                   <span class="agent-name-sm">${k.name}</span>
                   ${k.skill_name&&m`<span class="skill-badge" style="margin-left:4px;font-size:9px">${Wn(k,14)} ${k.skill_name}</span>`}
-                  <button class="bubble-action-btn" onClick=${C=>{C.stopPropagation(),navigator.clipboard.writeText(k.content),C.target.textContent="\u2713",setTimeout(()=>{C.target.textContent="\u{1F4CB}"},1500)}}>馃搵</button>
+                  <button class="bubble-action-btn" onClick=${C=>{C.stopPropagation(),navigator.clipboard.writeText(k.content),C.target.textContent="\u2713",setTimeout(()=>{C.target.textContent="\u{1F4CB}"},1500)}}>📋</button>
                 </div>
                 <div class="markdown-body" dangerouslySetInnerHTML=${{__html:He(k.content)}}></div>
                 ${k.content&&m`
                   <div class="bubble-actions-inline">
-                    <button class="bubble-action-btn-label" onClick=${C=>{C.stopPropagation(),navigator.clipboard.writeText(k.content);let B=C.currentTarget.querySelector("span"),i=B.textContent;B.textContent="\u2713 \u5DF2\u590D\u5236",setTimeout(()=>{B.textContent=i},1500)}}>馃搵 <span>${l("chat.copyMd")||"\u590D\u5236"}</span></button>
-                    <button class="bubble-action-btn-label" onClick=${C=>{C.stopPropagation();let B=new Blob([k.content],{type:"text/markdown"}),i=URL.createObjectURL(B),c=document.createElement("a");c.href=i,c.download=(k.name||"agent")+"_"+new Date().toISOString().slice(0,10)+".md",c.click(),URL.revokeObjectURL(i)}}>馃捑 <span>${l("chat.saveMd")||"\u4E0B\u8F7D"}</span></button>
-                    <button class="bubble-action-btn-label" onClick=${async C=>{C.stopPropagation();let B=C.currentTarget.querySelector("span");B.textContent="\u23F3";try{let i=Date.now().toString(36),c=await chrome.runtime.sendMessage({type:q.CREATE_BOOKMARK,payload:{thread_id:"agent-reply-"+k.agent_id+"-"+i,title:k.icon+" "+k.name+" \u2014 "+(e?.title||"Agent"),url:e?.url||"",summary:k.content.substring(0,500),tags:["Agent \u56DE\u590D"]}});if(c?.success){let S=c.data?.bookmark_id||c.data?.id;S&&await chrome.runtime.sendMessage({type:q.ADD_NOTE,payload:{bookmarkId:S,content:k.content}}),B.textContent="\u2713 \u5DF2\u6536\u85CF"}else B.textContent="\u2717"}catch{B.textContent="\u2717"}setTimeout(()=>{B.textContent=l("chat.saveToKb")||"\u6536\u85CF"},2e3)}}>馃摎 <span>${l("chat.saveToKb")||"\u6536\u85CF"}</span></button>
-                    <button class="bubble-action-btn-label" onClick=${C=>{C.stopPropagation(),!p&&(f(B=>{let i=[...B],c={...i[x]};return c.responses=c.responses.filter(S=>S.agent_id!==k.agent_id),i[x]=c,i}),T(k.agent_id,g.question))}}>馃攧 <span>${l("chat.regenerate")||"\u91CD\u65B0\u751F\u6210"}</span></button>
-                    <button class="bubble-action-btn-label danger-label" onClick=${C=>{C.stopPropagation(),f(B=>{let i=[...B],c={...i[x]};return c.responses=c.responses.filter(S=>S.agent_id!==k.agent_id),c.responses.length===0?i.filter((S,K)=>K!==x):(i[x]=c,i)})}}>馃棏锔?<span>${l("common.delete")||"\u5220\u9664"}</span></button>
+                    <button class="bubble-action-btn-label" onClick=${C=>{C.stopPropagation(),navigator.clipboard.writeText(k.content);let B=C.currentTarget.querySelector("span"),i=B.textContent;B.textContent="\u2713 \u5DF2\u590D\u5236",setTimeout(()=>{B.textContent=i},1500)}}>📋 <span>${l("chat.copyMd")||"\u590D\u5236"}</span></button>
+                    <button class="bubble-action-btn-label" onClick=${C=>{C.stopPropagation();let B=new Blob([k.content],{type:"text/markdown"}),i=URL.createObjectURL(B),c=document.createElement("a");c.href=i,c.download=(k.name||"agent")+"_"+new Date().toISOString().slice(0,10)+".md",c.click(),URL.revokeObjectURL(i)}}>💾 <span>${l("chat.saveMd")||"\u4E0B\u8F7D"}</span></button>
+                    <button class="bubble-action-btn-label" onClick=${async C=>{C.stopPropagation();let B=C.currentTarget.querySelector("span");B.textContent="\u23F3";try{let i=Date.now().toString(36),c=await chrome.runtime.sendMessage({type:q.CREATE_BOOKMARK,payload:{thread_id:"agent-reply-"+k.agent_id+"-"+i,title:k.icon+" "+k.name+" \u2014 "+(e?.title||"Agent"),url:e?.url||"",summary:k.content.substring(0,500),tags:["Agent \u56DE\u590D"]}});if(c?.success){let S=c.data?.bookmark_id||c.data?.id;S&&await chrome.runtime.sendMessage({type:q.ADD_NOTE,payload:{bookmarkId:S,content:k.content}}),B.textContent="\u2713 \u5DF2\u6536\u85CF"}else B.textContent="\u2717"}catch{B.textContent="\u2717"}setTimeout(()=>{B.textContent=l("chat.saveToKb")||"\u6536\u85CF"},2e3)}}>📚 <span>${l("chat.saveToKb")||"\u6536\u85CF"}</span></button>
+                    <button class="bubble-action-btn-label" onClick=${C=>{C.stopPropagation(),!p&&(f(B=>{let i=[...B],c={...i[x]};return c.responses=c.responses.filter(S=>S.agent_id!==k.agent_id),i[x]=c,i}),T(k.agent_id,g.question))}}>🔄 <span>${l("chat.regenerate")||"\u91CD\u65B0\u751F\u6210"}</span></button>
+                    <button class="bubble-action-btn-label danger-label" onClick=${C=>{C.stopPropagation(),f(B=>{let i=[...B],c={...i[x]};return c.responses=c.responses.filter(S=>S.agent_id!==k.agent_id),c.responses.length===0?i.filter((S,K)=>K!==x):(i[x]=c,i)})}}>🗑️ <span>${l("common.delete")||"\u5220\u9664"}</span></button>
                   </div>
                 `}
               </div>
@@ -254,7 +254,7 @@ ${k.content}
             rows="1"
             disabled=${p}
           ></textarea>
-          <button class="chat-send-btn" onClick=${()=>{let x=d.trim().match(/^@(\w+)\s+(.*)/s);x?(T(x[1],x[2]),v("")):y()}} disabled=${p||!d.trim()}>鉃?/button>
+          <button class="chat-send-btn" onClick=${()=>{let x=d.trim().match(/^@(\w+)\s+(.*)/s);x?(T(x[1],x[2]),v("")):y()}} disabled=${p||!d.trim()}>➜</button>
         </div>
       </div>
     </div>
@@ -277,7 +277,7 @@ ${k.content}
           onInput=${y=>h(y.target.value)}
         />
         <button class="search-btn" onClick=${Y} disabled=${n} title="${l("knowledge.refresh")||"\u5237\u65B0"}">
-          <span class=${n?"spin":""}>馃攧</span>
+          <span class=${n?"spin":""}>🔄</span>
         </button>
       </div>
 
@@ -295,7 +295,7 @@ ${k.content}
           </select>
         </label>
         <button class="kb-refresh-btn" onClick=${Y} disabled=${n} title="${l("knowledge.refresh")||"\u5237\u65B0\u77E5\u8BC6\u5E93"}">
-          <span class=${n?"spin":""}>馃攧</span>
+          <span class=${n?"spin":""}>🔄</span>
           ${n?l("knowledge.refreshing")||"\u5237\u65B0\u4E2D":l("knowledge.refresh")||"\u5237\u65B0"}
         </button>
         <span class="total-count">
@@ -316,7 +316,7 @@ ${k.content}
               <span key=${y} class="filter-tag ${f.includes(y)?"active":""}" onClick=${()=>Ue(y)}>
                 ${y}
                 ${he&&m`
-                  <button class="tag-remove" onClick=${T=>{T.stopPropagation(),ge(y)}}>脳</button>
+                  <button class="tag-remove" onClick=${T=>{T.stopPropagation(),ge(y)}}>×</button>
                 `}
               </span>
             `)}
@@ -341,7 +341,7 @@ ${k.content}
       <div class="bookmarks-list">
         ${j.length===0&&m`
           <div class="empty-state">
-            <div class="empty-icon">馃摎</div>
+            <div class="empty-icon">📚</div>
             <p>${u||f.length>0?l("knowledge.noMatch"):l("knowledge.empty")}</p>
             <p class="empty-hint">${l("knowledge.emptyHint")}</p>
           </div>
@@ -368,7 +368,8 @@ ${k.content}
                     <div class="detail-meta">
                       <span class="bookmark-date">${Yn(y.created_at||y.createdAt)}</span>
                       <a class="detail-link" href=${y.url} onClick=${R=>{R.preventDefault(),Z(y.url)}}>
-                        ${l("knowledge.openOriginal")} 鈫?                      </a>
+                        ${l("knowledge.openOriginal")} ↗
+                      </a>
                     </div>
 
                     ${(pe?.summary||y.summary)&&m`
@@ -403,8 +404,8 @@ ${k.content}
               `}
 
               <div class="bookmark-actions">
-                <button class="action-btn" onClick=${()=>Z(y.url)}>鈫?${l("knowledge.openLink")}</button>
-                <button class="action-btn" onClick=${R=>{let ee=y.notes?.file_path||"~/.quantclass/data/knowledge/posts/"+(y.thread_id||y.bookmark_id||y.id)+".md";navigator.clipboard.writeText(ee),R.target.textContent="\u2713 \u5DF2\u590D\u5236",setTimeout(()=>{R.target.textContent="\u{1F4C2} "+l("knowledge.copyPath")},1500)}}>馃搨 ${l("knowledge.copyPath")}</button>
+                <button class="action-btn" onClick=${()=>Z(y.url)}>↗ ${l("knowledge.openLink")}</button>
+                <button class="action-btn" onClick=${R=>{let ee=y.notes?.file_path||"~/.quantclass/data/knowledge/posts/"+(y.thread_id||y.bookmark_id||y.id)+".md";navigator.clipboard.writeText(ee),R.target.textContent="\u2713 \u5DF2\u590D\u5236",setTimeout(()=>{R.target.textContent="\u{1F4C2} "+l("knowledge.copyPath")},1500)}}>📂 ${l("knowledge.copyPath")}</button>
                 <button class="action-btn danger" onClick=${()=>ue(y.bookmark_id||y.id)}>${l("common.delete")}</button>
               </div>
             </div>
@@ -438,17 +439,17 @@ ${k.content}
     <div class="chat-tab">
       <div class="chat-toolbar">
         <div class="chat-toolbar-left">
-          ${h&&m`<span class="chat-context-dot" title="${l("chat.contextLoaded")}">馃敆</span>`}
-          ${pe&&m`<span class="chat-context-dot" title="璁板繂宸叉縺娲? style="margin-left:2px">馃</span>`}
+          ${h&&m`<span class="chat-context-dot" title="${l("chat.contextLoaded")}">🔗</span>`}
+          ${pe&&m`<span class="chat-context-dot" title="记忆已激活" style="margin-left:2px">🧠</span>`}
           ${t.length>0&&m`
             <span class="chat-msg-count">${t.length} ${l("chat.messages")}</span>
           `}
         </div>
         <div class="chat-toolbar-right">
-          ${d&&m`<button class="chat-tool-btn" onClick=${async()=>{try{let o=await Be(),b=o?.markdown||o?.content||"";if(!b)return;let L=(o?.title||"page").replace(/[^a-zA-Z0-9\u4e00-\u9fff]/g,"_").substring(0,40),M=new Blob([b],{type:"text/markdown"}),I=URL.createObjectURL(M),A=document.createElement("a");A.href=I,A.download=`${L}.md`,A.click(),URL.revokeObjectURL(I)}catch{}}}>馃搫 ${l("chat.btnSaveFull")}</button>`}
-          <button class="chat-tool-btn" onClick=${()=>z(o=>!o)}>馃搸 PDF</button>
-          <button class="chat-tool-btn" onClick=${x}>馃搵 ${l("chat.btnHistory")}</button>
-          <button class="chat-tool-btn" onClick=${g}>鉁?${l("chat.btnNew")}</button>
+          ${d&&m`<button class="chat-tool-btn" onClick=${async()=>{try{let o=await Be(),b=o?.markdown||o?.content||"";if(!b)return;let L=(o?.title||"page").replace(/[^a-zA-Z0-9\u4e00-\u9fff]/g,"_").substring(0,40),M=new Blob([b],{type:"text/markdown"}),I=URL.createObjectURL(M),A=document.createElement("a");A.href=I,A.download=`${L}.md`,A.click(),URL.revokeObjectURL(I)}catch{}}}>📄 ${l("chat.btnSaveFull")}</button>`}
+          <button class="chat-tool-btn" onClick=${()=>z(o=>!o)}>📎 PDF</button>
+          <button class="chat-tool-btn" onClick=${x}>📋 ${l("chat.btnHistory")}</button>
+          <button class="chat-tool-btn" onClick=${g}>＋ ${l("chat.btnNew")}</button>
         </div>
       </div>
 
@@ -470,7 +471,7 @@ ${k.content}
           </div>
           <div class="pdf-input-divider">${l("chat.pdfOr")}</div>
           <button class="pdf-upload-btn" onClick=${()=>Te.current?.click()} disabled=${U}>
-            馃搧 ${l("chat.pdfUpload")}
+            📁 ${l("chat.pdfUpload")}
           </button>
           <input
             ref=${Te}
@@ -488,9 +489,9 @@ ${k.content}
           <div class="chat-history-header">
             <span>${l("chat.historyTitle")} (${_.length})</span>
             <div class="chat-history-actions">
-              <button class="chat-hist-action" onClick=${()=>c(7)} title="${l("chat.clear7days")}">馃棑锔?/button>
-              <button class="chat-hist-action" onClick=${i} title="${l("chat.clearAll")}">馃棏锔?/button>
-              <button class="chat-hist-action" onClick=${()=>p(!1)}>鉁?/button>
+              <button class="chat-hist-action" onClick=${()=>c(7)} title="${l("chat.clear7days")}">🗓️</button>
+              <button class="chat-hist-action" onClick=${i} title="${l("chat.clearAll")}">🗑️</button>
+              <button class="chat-hist-action" onClick=${()=>p(!1)}></button>
             </div>
           </div>
           ${_.length===0&&m`
@@ -502,12 +503,12 @@ ${k.content}
                 <div class="chat-history-title">${o.pageTitle||l("chat.generalChat")}</div>
                 <div class="chat-history-preview">${o.preview}</div>
                 <div class="chat-history-meta">
-                  ${o.messageCount} ${l("chat.messages")} 路 ${S(o.updatedAt||o.createdAt)}
+                  ${o.messageCount} ${l("chat.messages")}    ${S(o.updatedAt||o.createdAt)}
                 </div>
               </div>
               <div class="chat-history-btns">
-                <button class="chat-hist-action" onClick=${()=>B(o)} title="${l("chat.saveToKb")}">馃摎</button>
-                <button class="chat-hist-action" onClick=${()=>C(o.id)} title="${l("common.delete")}">馃棏锔?/button>
+                <button class="chat-hist-action" onClick=${()=>B(o)} title="${l("chat.saveToKb")}">📚</button>
+                <button class="chat-hist-action" onClick=${()=>C(o.id)} title="${l("common.delete")}">🗑️</button>
               </div>
             </div>
           `)}
@@ -517,7 +518,7 @@ ${k.content}
       <div class="chat-messages" ref=${ge}>
         ${t.length===0&&m`
           <div class="chat-welcome">
-            <div class="chat-welcome-icon">馃挰</div>
+            <div class="chat-welcome-icon">💬</div>
             <p>${K?l("chat.welcomePdf"):e?.isAnalyzable?l("chat.welcomeTopic"):l("chat.welcomeGeneral")}</p>
 
             ${N.length>0&&m`
@@ -546,18 +547,18 @@ ${k.content}
               ${o.role==="user"&&m`
                 <div class="bubble-actions-inline user-actions">
                   <button class="bubble-action-btn-label danger-label" onClick=${()=>R(b)}
-                    >馃棏锔?<span>${l("common.delete")||"\u5220\u9664"}</span></button>
+                    >🗑️ <span>${l("common.delete")||"\u5220\u9664"}</span></button>
                 </div>
               `}
               ${o.role==="assistant"&&o.content&&m`
                 <div class="bubble-actions-inline">
-                <button class="bubble-action-btn-label" onClick=${L=>{navigator.clipboard.writeText(o.content);let M=L.currentTarget.querySelector("span"),I=M.textContent;M.textContent="\u2713 \u5DF2\u590D\u5236",setTimeout(()=>{M.textContent=I},1500)}}>馃搵 <span>${l("chat.copyMd")||"\u590D\u5236"}</span></button>
-                <button class="bubble-action-btn-label" onClick=${()=>{let L=new Blob([o.content],{type:"text/markdown"}),M=URL.createObjectURL(L),I=document.createElement("a");I.href=M,I.download="chat_"+new Date().toISOString().slice(0,16).replace(/[T:]/g,"-")+".md",I.click(),URL.revokeObjectURL(M)}}>馃捑 <span>${l("chat.saveMd")||"\u4E0B\u8F7D"}</span></button>
-                <button class="bubble-action-btn-label" onClick=${async L=>{let M=L.currentTarget.querySelector("span");M.textContent="\u23F3";try{let I=Date.now().toString(36),A="msg-"+Ce+"-"+I,E=await chrome.runtime.sendMessage({type:q.CREATE_BOOKMARK,payload:{thread_id:A,title:(e?.title||"Chat")+" \u2014 AI \u56DE\u590D",url:e?.url||"",summary:o.content.substring(0,500),tags:["AI \u56DE\u590D"]}});if(E?.success){let O=E.data?.bookmark_id||E.data?.id;O&&await chrome.runtime.sendMessage({type:q.ADD_NOTE,payload:{bookmarkId:O,content:o.content}}),M.textContent="\u2713 \u5DF2\u6536\u85CF"}else M.textContent="\u2717 \u5931\u8D25"}catch{M.textContent="\u2717 \u5931\u8D25"}setTimeout(()=>{M.textContent=l("chat.saveToKb")||"\u6536\u85CF"},2e3)}}>馃摎 <span>${l("chat.saveToKb")||"\u6536\u85CF"}</span></button>
+                <button class="bubble-action-btn-label" onClick=${L=>{navigator.clipboard.writeText(o.content);let M=L.currentTarget.querySelector("span"),I=M.textContent;M.textContent="\u2713 \u5DF2\u590D\u5236",setTimeout(()=>{M.textContent=I},1500)}}>📋 <span>${l("chat.copyMd")||"\u590D\u5236"}</span></button>
+                <button class="bubble-action-btn-label" onClick=${()=>{let L=new Blob([o.content],{type:"text/markdown"}),M=URL.createObjectURL(L),I=document.createElement("a");I.href=M,I.download="chat_"+new Date().toISOString().slice(0,16).replace(/[T:]/g,"-")+".md",I.click(),URL.revokeObjectURL(M)}}>💾 <span>${l("chat.saveMd")||"\u4E0B\u8F7D"}</span></button>
+                <button class="bubble-action-btn-label" onClick=${async L=>{let M=L.currentTarget.querySelector("span");M.textContent="\u23F3";try{let I=Date.now().toString(36),A="msg-"+Ce+"-"+I,E=await chrome.runtime.sendMessage({type:q.CREATE_BOOKMARK,payload:{thread_id:A,title:(e?.title||"Chat")+" \u2014 AI \u56DE\u590D",url:e?.url||"",summary:o.content.substring(0,500),tags:["AI \u56DE\u590D"]}});if(E?.success){let O=E.data?.bookmark_id||E.data?.id;O&&await chrome.runtime.sendMessage({type:q.ADD_NOTE,payload:{bookmarkId:O,content:o.content}}),M.textContent="\u2713 \u5DF2\u6536\u85CF"}else M.textContent="\u2717 \u5931\u8D25"}catch{M.textContent="\u2717 \u5931\u8D25"}setTimeout(()=>{M.textContent=l("chat.saveToKb")||"\u6536\u85CF"},2e3)}}>📚 <span>${l("chat.saveToKb")||"\u6536\u85CF"}</span></button>
                 <button class="bubble-action-btn-label" onClick=${()=>ee(b)}
-                  >馃攧 <span>${l("chat.regenerate")||"\u91CD\u65B0\u751F\u6210"}</span></button>
+                  >🔄 <span>${l("chat.regenerate")||"\u91CD\u65B0\u751F\u6210"}</span></button>
                 <button class="bubble-action-btn-label danger-label" onClick=${()=>R(b)}
-                  >馃棏锔?<span>${l("common.delete")||"\u5220\u9664"}</span></button>
+                  >🗑️ <span>${l("common.delete")||"\u5220\u9664"}</span></button>
                 </div>
               `}
             </div>
@@ -591,7 +592,7 @@ ${k.content}
             onClick=${()=>ce()}
             disabled=${a||!s.trim()}
           >
-            鉃?          </button>
+            ➜          </button>
         </div>
         <div class="chat-input-tools" style="position:relative">
           <button
@@ -599,7 +600,7 @@ ${k.content}
             onClick=${()=>{ue?(le(null),j(!1)):j(o=>!o)}}
             title="${l("chat.thinkingHint")}"
           >
-            馃 ${ae?`${l("chat.thinking")} \xB7 ${ae.toUpperCase()}`:l("chat.thinking")}
+            🧠 ${ae?`${l("chat.thinking")} \xB7 ${ae.toUpperCase()}`:l("chat.thinking")}
           </button>
           ${te&&m`
             <div class="effort-menu">
@@ -665,7 +666,7 @@ ${k.content}
             <button
               class="btn-lang ${me==="zh"?"active":""}"
               onClick=${()=>B("zh")}
-            >涓枃</button>
+            >中文</button>
             <button
               class="btn-lang ${me==="en"?"active":""}"
               onClick=${()=>B("en")}
@@ -797,11 +798,11 @@ ${k.content}
                 <select id="test-model-${i.id}" style="flex:1;font-size:11px;padding:4px 8px;font-family:monospace">
                   ${(f[i.id]||[]).map(c=>m`<option key=${c} value=${c}>${c}</option>`)}
                 </select>
-                <button class="btn-secondary" style="padding:4px 8px;font-size:10px;white-space:nowrap" onClick=${async c=>{let S=c.target,K=document.getElementById("test-model-"+i.id),N=f[i.id]||[],o=K?.value||N[0];if(!o){C({type:"error",text:`\u274C ${i.name}: no model configured`});return}S.textContent="\u23F3",S.disabled=!0;try{let b=await chrome.runtime.sendMessage({type:"TEST_PROVIDER",payload:{provider:i.id,model:o}});b?.success?C({type:"success",text:`\u2705 ${i.name}/${b.data?.model}: ${b.data?.response||"OK"}`}):C({type:"error",text:`\u274C ${i.name}: ${b?.error||"failed"}`})}catch(b){C({type:"error",text:`\u274C ${b.message}`})}finally{S.textContent="\u{1F50D} \u6D4B\u8BD5",S.disabled=!1}}}>馃攳 娴嬭瘯</button>
+                <button class="btn-secondary" style="padding:4px 8px;font-size:10px;white-space:nowrap" onClick=${async c=>{let S=c.target,K=document.getElementById("test-model-"+i.id),N=f[i.id]||[],o=K?.value||N[0];if(!o){C({type:"error",text:`\u274C ${i.name}: no model configured`});return}S.textContent="\u23F3",S.disabled=!0;try{let b=await chrome.runtime.sendMessage({type:"TEST_PROVIDER",payload:{provider:i.id,model:o}});b?.success?C({type:"success",text:`\u2705 ${i.name}/${b.data?.model}: ${b.data?.response||"OK"}`}):C({type:"error",text:`\u274C ${i.name}: ${b?.error||"failed"}`})}catch(b){C({type:"error",text:`\u274C ${b.message}`})}finally{S.textContent="\u{1F50D} \u6D4B\u8BD5",S.disabled=!1}}}>🔍 测试</button>
               </div>
               <div style="display:flex;gap:4px;margin-bottom:4px">
-                <input type="text" id="add-model-${i.id}" placeholder="娣诲姞妯″瀷鍚嶏紝鍥炶溅鎴栫偣 鉃? style="flex:1;font-size:11px;padding:4px 8px;font-family:monospace" onKeyDown=${c=>{c.key==="Enter"&&(Qe(i.id,c.target.value),c.target.value="")}} />
-                <button class="btn-secondary" style="padding:4px 6px;font-size:10px" onClick=${()=>{let c=document.getElementById("add-model-"+i.id);Qe(i.id,c?.value),c&&(c.value="")}}>鉃?/button>
+                <input type="text" id="add-model-${i.id}" placeholder="添加模型名，回车或点击 ➜" style="flex:1;font-size:11px;padding:4px 8px;font-family:monospace" onKeyDown=${c=>{c.key==="Enter"&&(Qe(i.id,c.target.value),c.target.value="")}} />
+                <button class="btn-secondary" style="padding:4px 6px;font-size:10px" onClick=${()=>{let c=document.getElementById("add-model-"+i.id);Qe(i.id,c?.value),c&&(c.value="")}}>➜</button>
               </div>
               ${(f[i.id]||[]).length>0&&m`
                 <div style="display:flex;flex-wrap:wrap;gap:4px">
@@ -810,9 +811,9 @@ ${k.content}
                       ${c}
                       <button
                         style="background:none;border:none;cursor:pointer;color:#888;padding:0;font-size:11px;line-height:1"
-                        title="鍒犻櫎"
+                        title="删除"
                         onClick=${()=>g(i.id,c)}
-                      >脳</button>
+                      >×</button>
                     </span>
                   `)}
                 </div>
@@ -826,7 +827,7 @@ ${k.content}
             <div class="provider-name">
               ${i.name}
               <span style="font-size:10px;color:#888;font-weight:normal;margin-left:6px">${(i.protocol||"openai").toUpperCase()}</span>
-              <button class="provider-delete" onClick=${()=>k(i.id)} title="${l("common.delete")}">馃棏锔?/button>
+              <button class="provider-delete" onClick=${()=>k(i.id)} title="${l("common.delete")}">🗑️</button>
             </div>
             <div class="form-group">
               <label class="sub-label">Base URL</label>
@@ -864,8 +865,8 @@ ${k.content}
             <div class="form-group">
               <label class="sub-label">${l("settings.protocol")||"\u534F\u8BAE"}</label>
               <select value=${W.protocol} onChange=${i=>G(c=>({...c,protocol:i.target.value}))}>
-                <option value="openai">OpenAI 鍏煎锛?v1/chat/completions锛?/option>
-                <option value="anthropic">Anthropic 鍘熺敓锛?v1/messages锛?/option>
+                <option value="openai">OpenAI 兼容（/v1/chat/completions）</option>
+                <option value="anthropic">Anthropic 原生（/v1/messages）</option>
               </select>
               <span class="hint">${l("settings.protocolHint")||"\u5927\u90E8\u5206\u7B2C\u4E09\u65B9\u4EE3\u7406\u7528 OpenAI \u534F\u8BAE\uFF1B\u53EA\u6709\u5B98\u65B9 Anthropic API \u6216\u539F\u751F\u955C\u50CF\u624D\u9009 Anthropic"}</span>
             </div>
@@ -891,7 +892,7 @@ ${k.content}
                   <input type="checkbox" checked=${i.enabled!==!1} onChange=${async c=>{let S=c.target.checked;await chrome.runtime.sendMessage({type:q.UPDATE_CONFIG,payload:{}});let N=(await Pe.get())?.backendUrl||de.backendUrl;await fetch(N+de.apiBasePath+"/skills/"+encodeURIComponent(i.id),{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({enabled:S})}),D(o=>o.map(b=>b.id===i.id?{...b,enabled:S}:b))}} />
                   ${i.enabled!==!1?l("settings.skillEnabled")||"\u542F\u7528":l("settings.skillDisabled")||"\u7981\u7528"}
                 </label>
-                <button class="provider-delete" onClick=${async()=>{let S=(await Pe.get())?.backendUrl||de.backendUrl;await fetch(S+de.apiBasePath+"/skills/"+encodeURIComponent(i.id),{method:"DELETE"}),D(K=>K.filter(N=>N.id!==i.id))}} title="${l("common.delete")}">馃棏锔?/button>
+                <button class="provider-delete" onClick=${async()=>{let S=(await Pe.get())?.backendUrl||de.backendUrl;await fetch(S+de.apiBasePath+"/skills/"+encodeURIComponent(i.id),{method:"DELETE"}),D(K=>K.filter(N=>N.id!==i.id))}} title="${l("common.delete")}">🗑️</button>
               </div>
               <div style="font-size:10px;color:var(--text-muted);margin-top:2px">${(i.description||"").substring(0,80)}${i.description?.length>80?"...":""}</div>
             </div>
@@ -904,7 +905,7 @@ ${k.content}
 
         <div style="margin-top:8px">
           <button class="btn-add-custom" onClick=${async()=>{let i=prompt(l("settings.skillImportPrompt")||"\u8BF7\u8F93\u5165 people-skill \u76EE\u5F55\u8DEF\u5F84\uFF08\u5982 /Users/.../people-skill\uFF09");if(i){C({type:"success",text:"\u23F3 \u5BFC\u5165\u4E2D..."});try{let S=(await Pe.get())?.backendUrl||de.backendUrl,N=await(await fetch(S+de.apiBasePath+"/skills/import",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({source_dir:i})})).json();if(N.code===0){C({type:"success",text:"\u2705 "+(l("settings.skillImported")||"\u5BFC\u5165\u6210\u529F")+"\uFF1A"+N.data.imported+" \u4E2A\u89C6\u89D2"});let o=await chrome.runtime.sendMessage({type:q.LIST_SKILLS}),b=o?.data?.data??o?.data;Array.isArray(b)&&D(b)}else C({type:"error",text:"\u274C "+(N.message||"import failed")})}catch(c){C({type:"error",text:"\u274C "+c.message})}}}}>
-            馃摝 ${l("settings.skillImport")||"\u5BFC\u5165\u89C6\u89D2\u5E93"}
+            📥 ${l("settings.skillImport")||"\u5BFC\u5165\u89C6\u89D2\u5E93"}
           </button>
         </div>
       </div>
@@ -921,25 +922,25 @@ ${k.content}
                 <div style="font-size:12px;font-weight:600">${i.name}</div>
                 <div style="font-size:10px;color:var(--text-muted)">
                   ${i.description}
-                  ${i.skill_id&&m` 路 <span style="color:var(--primary)">${yt(P.find(c=>c.id===i.skill_id),14)} ${(P.find(c=>c.id===i.skill_id)||{}).display_name||i.skill_id}</span>`}
+                  ${i.skill_id&&m`    <span style="color:var(--primary)">${yt(P.find(c=>c.id===i.skill_id),14)} ${(P.find(c=>c.id===i.skill_id)||{}).display_name||i.skill_id}</span>`}
                 </div>
               </div>
-              <button class="chat-hist-action" onClick=${()=>{ae===i.id?le(null):(le(i.id),j({name:i.name,icon:i.icon,description:i.description,prompt:i.prompt,skill_id:i.skill_id||""}),Se(!1))}} title="缂栬緫">${ae===i.id?"\u25B2":"\u270F\uFE0F"}</button>
-              <button class="chat-hist-action" onClick=${async()=>{if(confirm("\u5220\u9664 "+i.name+"?"))try{await chrome.runtime.sendMessage({type:"DELETE_AGENT",payload:{id:i.id}}),z(c=>c.filter(S=>S.id!==i.id)),C({type:"success",text:"\u2713 \u5DF2\u5220\u9664"})}catch(c){C({type:"error",text:c.message})}}} title="鍒犻櫎">馃棏锔?/button>
+              <button class="chat-hist-action" onClick=${()=>{ae===i.id?le(null):(le(i.id),j({name:i.name,icon:i.icon,description:i.description,prompt:i.prompt,skill_id:i.skill_id||""}),Se(!1))}} title="编辑">${ae===i.id?"\u25B2":"\u270F\uFE0F"}</button>
+              <button class="chat-hist-action" onClick=${async()=>{if(confirm("\u5220\u9664 "+i.name+"?"))try{await chrome.runtime.sendMessage({type:"DELETE_AGENT",payload:{id:i.id}}),z(c=>c.filter(S=>S.id!==i.id)),C({type:"success",text:"\u2713 \u5DF2\u5220\u9664"})}catch(c){C({type:"error",text:c.message})}}} title="删除">🗑️</button>
             </div>
 
             ${ae===i.id&&m`
               <div class="custom-form" style="margin-top:8px">
                 <div class="form-group">
-                  <label class="sub-label">鍚嶇О</label>
+                  <label class="sub-label">名称</label>
                   <input type="text" value=${te.name} onInput=${c=>j(S=>({...S,name:c.target.value}))} />
                 </div>
                 <div class="form-group">
-                  <label class="sub-label">鍥炬爣</label>
+                  <label class="sub-label">图标</label>
                   <input type="text" value=${te.icon} onInput=${c=>j(S=>({...S,icon:c.target.value}))} style="width:60px" />
                 </div>
                 <div class="form-group">
-                  <label class="sub-label">鎻忚堪</label>
+                  <label class="sub-label">描述</label>
                   <input type="text" value=${te.description} onInput=${c=>j(S=>({...S,description:c.target.value}))} />
                 </div>
                 <div class="form-group">
@@ -953,7 +954,7 @@ ${k.content}
                     style="width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);font-size:12px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:6px"
                     onClick=${()=>Se(c=>!c)}
                   >
-                    ${te.skill_id?m`${yt(P.find(c=>c.id===te.skill_id),20)} <span style="flex:1">${(P.find(c=>c.id===te.skill_id)||{}).display_name||te.skill_id}</span>`:m`<span style="flex:1;color:var(--text-muted)">鈥?${l("settings.agentNoSkill")||"\u4E0D\u5173\u8054"} 鈥?/span>`}
+                    ${te.skill_id?m`${yt(P.find(c=>c.id===te.skill_id),20)} <span style="flex:1">${(P.find(c=>c.id===te.skill_id)||{}).display_name||te.skill_id}</span>`:m`<span style="flex:1;color:var(--text-muted)">— ${l("settings.agentNoSkill")||"\u4E0D\u5173\u8054"} —</span>`}
                     <span style="font-size:10px;color:var(--text-muted)">${ue?"\u25B2":"\u25BC"}</span>
                   </button>
                   ${ue&&m`
@@ -962,7 +963,7 @@ ${k.content}
                         class="effort-option ${te.skill_id?"":"active"}"
                         style="width:100%;text-align:left;padding:6px 8px;border:none;background:none;cursor:pointer;border-radius:6px;font-size:12px"
                         onClick=${()=>{j(c=>({...c,skill_id:""})),Se(!1)}}
-                      >鈥?${l("settings.agentNoSkill")||"\u4E0D\u5173\u8054"} 鈥?/button>
+                      >— ${l("settings.agentNoSkill")||"\u4E0D\u5173\u8054"} —</button>
                       ${P.map(c=>m`
                         <button
                           key=${c.id}
@@ -977,13 +978,13 @@ ${k.content}
                   `}
                   <span class="hint">${l("settings.agentSkillHint")||"\u5173\u8054\u540E\uFF0CAgent \u4F1A\u4EE5\u8BE5\u4EBA\u7269\u7684\u601D\u7EF4\u6846\u67B6\u56DE\u7B54"}</span>
                 </div>
-                <button class="btn-primary" style="width:100%" onClick=${async()=>{try{await chrome.runtime.sendMessage({type:"UPDATE_AGENT",payload:{id:i.id,...te}});let c=await chrome.runtime.sendMessage({type:q.LIST_AGENTS}),S=c?.data?.data??c?.data;Array.isArray(S)&&z(S),le(null),C({type:"success",text:"\u2713 \u5DF2\u66F4\u65B0"})}catch(c){C({type:"error",text:c.message})}}}>淇濆瓨</button>
+                <button class="btn-primary" style="width:100%" onClick=${async()=>{try{await chrome.runtime.sendMessage({type:"UPDATE_AGENT",payload:{id:i.id,...te}});let c=await chrome.runtime.sendMessage({type:q.LIST_AGENTS}),S=c?.data?.data??c?.data;Array.isArray(S)&&z(S),le(null),C({type:"success",text:"\u2713 \u5DF2\u66F4\u65B0"})}catch(c){C({type:"error",text:c.message})}}}>保存</button>
               </div>
             `}
           </div>
         `)}
 
-        ${H.length===0&&m`<div style="color:var(--text-muted);font-size:12px;padding:8px">鍔犺浇涓?..</div>`}
+        ${H.length===0&&m`<div style="color:var(--text-muted);font-size:12px;padding:8px">加载中...</div>`}
 
         <button class="btn-add-custom" onClick=${()=>V(i=>!i)}>
           ${U?"\u2715 \u53D6\u6D88":"\u2795 "+l("settings.agentAdd")}
@@ -993,19 +994,19 @@ ${k.content}
           <div class="custom-form">
             <div class="form-group">
               <label class="sub-label">${l("settings.agentNamePrompt")}</label>
-              <input type="text" value=${Y.name} onInput=${i=>re(c=>({...c,name:i.target.value}))} placeholder="浜у搧缁忕悊" />
+              <input type="text" value=${Y.name} onInput=${i=>re(c=>({...c,name:i.target.value}))} placeholder="产品经理" />
             </div>
             <div class="form-group">
-              <label class="sub-label">Emoji 鍥炬爣</label>
-              <input type="text" value=${Y.icon} onInput=${i=>re(c=>({...c,icon:i.target.value}))} placeholder="馃" style="width:60px" />
+              <label class="sub-label">Emoji 图标</label>
+              <input type="text" value=${Y.icon} onInput=${i=>re(c=>({...c,icon:i.target.value}))} placeholder="💼" style="width:60px" />
             </div>
             <div class="form-group">
-              <label class="sub-label">涓€鍙ヨ瘽鎻忚堪</label>
-              <input type="text" value=${Y.description} onInput=${i=>re(c=>({...c,description:i.target.value}))} placeholder="浠庝骇鍝佽搴﹀垎鏋? />
+              <label class="sub-label">一句话描述</label>
+              <input type="text" value=${Y.description} onInput=${i=>re(c=>({...c,description:i.target.value}))} placeholder="从产品角度分析" />
             </div>
             <div class="form-group">
-              <label class="sub-label">System Prompt锛堣鑹茶瀹氾級</label>
-              <textarea style="width:100%;min-height:80px;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:12px;font-family:inherit;resize:vertical" value=${Y.prompt} onInput=${i=>re(c=>({...c,prompt:i.target.value}))} placeholder="浣犳槸涓€涓?.."></textarea>
+              <label class="sub-label">System Prompt（角色设定）</label>
+              <textarea style="width:100%;min-height:80px;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:12px;font-family:inherit;resize:vertical" value=${Y.prompt} onInput=${i=>re(c=>({...c,prompt:i.target.value}))} placeholder="你是一个..."></textarea>
             </div>
             <button class="btn-primary" style="width:100%" disabled=${!Y.name||!Y.prompt} onClick=${async()=>{let i=Y.name.toLowerCase().replace(/[^a-z0-9\u4e00-\u9fff]/g,"_").substring(0,30);try{await chrome.runtime.sendMessage({type:"CREATE_AGENT",payload:{id:i,...Y}});let c=await chrome.runtime.sendMessage({type:q.LIST_AGENTS}),S=c?.data?.data??c?.data;Array.isArray(S)&&z(S),re({name:"",icon:"\u{1F916}",description:"",prompt:""}),V(!1),C({type:"success",text:l("settings.agentCreated")})}catch(c){C({type:"error",text:c.message})}}}>
               ${l("settings.customConfirm")}
@@ -1020,8 +1021,8 @@ ${k.content}
         </span>
         ${Ae&&m`
           <div style="margin-top:6px">
-            <span style="font-size:10px;color:var(--success)">馃敁 寮€鍙戣€呮ā寮?/span>
-            <button class="chat-hist-action" onClick=${()=>{chrome.storage.local.set({_qc_dev:!1}),De(!1),C({type:"success",text:"\u{1F512} \u5DF2\u9000\u51FA\u5F00\u53D1\u8005\u6A21\u5F0F"})}} style="font-size:10px;margin-left:8px">閫€鍑?/button>
+            <span style="font-size:10px;color:var(--success)">🔧 开发者模式</span>
+            <button class="chat-hist-action" onClick=${()=>{chrome.storage.local.set({_qc_dev:!1}),De(!1),C({type:"success",text:"\u{1F512} \u5DF2\u9000\u51FA\u5F00\u53D1\u8005\u6A21\u5F0F"})}} style="font-size:10px;margin-left:8px">退出</button>
           </div>
         `}
       </div>
@@ -1035,14 +1036,15 @@ ${k.content}
     </div>
   `}function Vn({onDismiss:e}){return m`
     <div class="onboarding-card">
-      <h3 style="margin:0 0 12px;font-size:15px">馃憢 娆㈣繋浣跨敤 QuantClass Smart</h3>
+      <h3 style="margin:0 0 12px;font-size:15px">👋 欢迎使用 QuantClass Smart</h3>
       <ol style="margin:0;padding-left:20px;font-size:13px;line-height:1.8">
-        <li><strong>鍚姩鍚庣</strong> 鈥?鍦ㄧ粓绔繍琛?<code>bash scripts/start.sh</code></li>
-        <li><strong>鎵撳紑璁哄潧甯栧瓙</strong> 鈥?璁块棶 <a href="https://bbs.quantclass.cn" target="_blank">bbs.quantclass.cn</a> 浠绘剰甯栧瓙</li>
-        <li><strong>鐢熸垚鎽樿</strong> 鈥?鐐瑰嚮涓婃柟銆屾憳瑕併€嶉〉绛撅紝鐐瑰嚮鐢熸垚鎸夐挳</li>
+        <li><strong>启动后端</strong> — 在终端运行 <code>bash scripts/start.sh</code></li>
+        <li><strong>打开论坛帖子</strong> — 访问 <a href="https://bbs.quantclass.cn" target="_blank">bbs.quantclass.cn</a> 任意帖子</li>
+        <li><strong>生成摘要</strong> — 点击上方“摘要”页签，点击生成按钮</li>
       </ol>
       <button class="btn-secondary" style="margin-top:10px;font-size:12px" onClick=${e}>
-        鎴戠煡閬撲簡锛屼笉鍐嶆樉绀?      </button>
+        我知道了，不再显示
+      </button>
     </div>
   `}function Qn(){let[e,t]=$("chat"),[n,s]=$(null),[r,a]=$(!0),[,u]=$(0),[h,f]=$(!1);ie(()=>(hn().then(()=>u(_=>_+1)),chrome.storage.local.get("_qc_font_scale",_=>{let w=parseFloat(_._qc_font_scale)||1;document.documentElement.style.setProperty("--font-scale",w)}),_n(()=>u(_=>_+1))),[]),ie(()=>{chrome.storage.local.get("quantclass_onboarding_done",_=>{_.quantclass_onboarding_done||f(!0)})},[]);function d(){chrome.storage.local.set({quantclass_onboarding_done:!0}),f(!1)}ie(()=>{function _(P){return P?{url:P.url,title:P.title,isTopicPage:/\/(thread|topic|t|d)\//.test(P.url||""),isAnalyzable:!/^(chrome|about|edge|brave|file|devtools):/.test(P.url||"")}:null}async function w(){try{let[P]=await chrome.tabs.query({active:!0,currentWindow:!0}),D=_(P);D&&s(D)}catch(P){console.warn("refreshActiveTab failed:",P)}finally{a(!1)}}w();let H=()=>{w()};chrome.tabs.onActivated.addListener(H);let z=(P,D,U)=>{if(U?.active&&(D.url||D.title||D.status==="complete")){let V=_(U);V&&s(V)}};return chrome.tabs.onUpdated.addListener(z),()=>{chrome.tabs.onActivated.removeListener(H),chrome.tabs.onUpdated.removeListener(z)}},[]);let v=[{id:"chat",label:l("tab.chat"),icon:"\u{1F4AC}"},{id:"agent",label:"Agent",icon:"\u{1F916}"},{id:"knowledge",label:l("tab.knowledge"),icon:"\u{1F4DA}"},{id:"settings",label:l("tab.settings"),icon:"\u2699\uFE0F"}];function p(){switch(e){case"chat":return m`<${Sn} currentPage=${n} />`;case"agent":return m`<${kn} currentPage=${n} />`;case"knowledge":return m`<${wn} />`;case"settings":return m`<${xn} />`;default:return null}}return r?m`
       <div class="loading-container">
