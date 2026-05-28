@@ -29,6 +29,22 @@ quantclass-smart/
 - 默认后端地址：`http://127.0.0.1:8700`
 - 健康检查地址：`http://127.0.0.1:8700/api/health`
 
+## 快捷安装
+
+推荐使用根目录安装器完成本地配置：
+
+```powershell
+.\install-local.ps1 -ExtensionId <EXTENSION_ID>
+```
+
+安装器会检查 Python、创建后端虚拟环境、在访问 PyPI 安装依赖前请求确认、注册 Chrome Native Messaging Host，并提示你重新加载插件。
+
+详细步骤见：
+
+```text
+INSTALL.md
+```
+
 ## 手动启动后端
 
 如果只想手动运行后端：
