@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "QuantClass Smart",
+  "version": "0.2.4",
+  "description": "AI 智能助手 - 网页摘要、PDF分析、AI聊天、知识库",
+  "permissions": ["activeTab", "storage", "sidePanel", "scripting", "nativeMessaging"],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "build/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["build/content.js"],
+      "css": ["build/content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "side_panel": {
+    "default_path": "build/popup.html"
+  },
+  "action": {
+    "default_icon": "icons/icon128.png"
+  },
+  "icons": {
+    "16": "icons/icon128.png",
+    "48": "icons/icon128.png",
+    "128": "icons/icon128.png"
+  }
+}
